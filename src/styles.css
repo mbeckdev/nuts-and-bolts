@@ -1,9 +1,115 @@
+:root {
+  --tab-color-selected: #e5eef5;
+  --tab-bkcolor-selected: #04080b;
+  --top-color: #2f4858;
+  --tab-hover-color: #33658a; /*hsl(5, 86%, 38%)*/
+}
+
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  color: blue;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'EB Garamond', serif;
+  color: var(--tab-color-selected);
+  background-color: var(--tab-bkcolor-selected);
+  text-shadow: 1px 1px 3px black, -1px -1px 3px black;
+}
+
+header {
+  background-color: var(--top-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-between; */
+  justify-content: space-around;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  padding: 10px;
+  font-family: 'Cabin Sketch', cursive;
+  color: var(--tab-color-selected);
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+}
+
+li {
+  padding: 10px 20px;
+  list-style-type: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: pointer;
+  font-size: large;
+}
+
+li:hover {
+  text-decoration: underline;
+  background-color: var(--tab-hover-color);
+}
+
+#copy-container {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+#headline {
+  font-size: 60px;
+  font-family: 'Cabin Sketch', cursive;
+  text-align: center;
+}
+
+#hype-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#hype-container p {
+  margin: 20px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  padding: 1px;
+}
+
+.about-p {
+  margin: 1em 2em;
+}
+
+.menu-container {
+  margin: 1em;
+  padding: 0 1em;
+}
+
+.menu-item {
+  word-break: normal;
+  margin-left: 2em;
+  text-indent: -2em;
+}
+
+.menu-row {
+  display: flex;
+  justify-content: space-between;
+  line-height: 1.7em;
+}
+
+.price {
+  margin-left: 2em;
+}
+
+.tab-selected {
+  color: var(--tab-color-selected);
+  background-color: var(--tab-bkcolor-selected);
 }
