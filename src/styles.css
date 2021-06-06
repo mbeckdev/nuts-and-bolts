@@ -37,24 +37,63 @@ h1 {
   color: var(--tab-color-selected);
 }
 
-nav ul {
+nav > ul {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+/* first level of dropdown */
+nav > ul > li {
   display: flex;
   flex-direction: row;
+  background-color: green;
+  position: relative;
+  /* transform: translate(100px, 100px); */
+}
+
+/* second level of dropdown list item*/
+li > ul > li {
+  color: yellow;
+  background-color: blue;
+  /* position: absolute; */
+}
+
+/* second level of dropdowns container*/
+li > ul {
+  position: absolute;
+
+  /* starting point of being hidden */
+  bottom: 0;
+  left: 0;
+  z-index: -3;
+  transition: transform 300ms ease-in-out;
+}
+nav > ul > li:hover .li > ul > li {
+  transform: translate(200px, 150px) rotate(30deg);
 }
 
 li {
   padding: 10px 20px;
   list-style-type: none;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+
   cursor: pointer;
   font-size: large;
+  /* background-color: blue; */
 }
 
 li:hover {
   text-decoration: underline;
   background-color: var(--tab-hover-color);
+  transition: all;
 }
+
+/* 
+li:first-of-type:hover {
+  border-top-left-radius: 10px;
+}
+li:last-of-type:hover {
+  border-top-right-radius: 10px;
+} */
 
 #copy-container {
   margin-top: 2em;
@@ -65,7 +104,7 @@ li:hover {
   font-size: 20px;
 }
 
-#headline {
+/* #headline {
   font-size: 60px;
   font-family: 'Cabin Sketch', cursive;
   text-align: center;
@@ -82,9 +121,9 @@ li:hover {
   display: flex;
   justify-content: center;
   padding: 1px;
-}
+} */
 
-.about-p {
+/* .about-p {
   margin: 1em 2em;
 }
 
@@ -103,13 +142,13 @@ li:hover {
   display: flex;
   justify-content: space-between;
   line-height: 1.7em;
-}
+} */
 
-.price {
+/* .price {
   margin-left: 2em;
-}
-
+} */
+/* 
 .tab-selected {
   color: var(--tab-color-selected);
   background-color: var(--tab-bkcolor-selected);
-}
+} */
