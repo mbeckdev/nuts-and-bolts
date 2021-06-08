@@ -1,0 +1,96 @@
+:root {
+  /* --tab-color-selected: #e5eef5;
+  --tab-bkcolor-selected: #04080b;
+  --top-color: #2f4858; */
+  /* --tab-hover-color: #33658a; hsl(5, 86%, 38%) */
+  --menu-bk-color: darkblue;
+  --menu-text-color: white;
+  --menu-dropdown-bk-color: darkgreen;
+  --menu-item-width: 100px;
+}
+
+nav {
+  display: flex;
+}
+
+/* first level of dropdown */
+/* nav > ul > li { */
+.level-1 {
+  position: relative;
+  /* display: inline-block; */
+
+  width: var(--menu-item-width);
+  padding: 4px 0;
+
+  border: 1px solid red;
+
+  text-align: center;
+
+  background-color: darkgray;
+}
+.level-2-container {
+  /* display: none; */
+  position: absolute;
+  width: var(--menu-item-width);
+  bottom: 0;
+  left: 0;
+
+  z-index: -1;
+
+  border: 1px solid purple;
+  /* transition: transform 300ms ease-in-out; */
+  transition: transform 300ms ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+
+.level-1:hover .level-2-container {
+  /* display: block; */
+  /* position: relative; */
+  /* top: 0; */
+
+  /* z-index: 1; */
+  position: absolute;
+
+  transform-origin: -100%;
+  transform: translate(0%, 100%);
+  /* transform: translateY(150px); */
+  /* heeeeeeeeeeeeeere change this in js */
+}
+
+header {
+  z-index: 2;
+}
+
+/* .level-1:hover {
+  background-color: white;
+} */
+
+/* second level of dropdown list item*/
+/* li > ul > li { */
+.level-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 40px;
+  width: var(--menu-item-width);
+  border: 1px solid green;
+
+  background-color: blue;
+
+  /* margin: auto 0; */
+  list-style-type: none;
+  cursor: pointer;
+  font-size: large;
+}
+
+.awesome-dropdown-not-hidden {
+  color: purple;
+  z-index: 1;
+  top: 0;
+}
