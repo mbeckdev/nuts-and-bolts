@@ -9,35 +9,36 @@
   --menu-item-width: 100px;
 }
 
-nav {
+nav div {
   display: flex;
+  position: relative;
 }
 
 /* first level of dropdown */
 /* nav > ul > li { */
 .level-1 {
   position: relative;
-  /* display: inline-block; */
+  /* z-index: 1; */
+  display: inline-block;
 
   width: var(--menu-item-width);
   padding: 4px 0;
 
-  border: 1px solid red;
-
   text-align: center;
 
   background-color: darkgray;
+  /* border: 1px solid red; */
 }
+
 .level-2-container {
-  /* display: none; */
-  position: absolute;
+  position: relative;
+  z-index: 1;
   width: var(--menu-item-width);
   bottom: 0;
+  /* top: 0; */
   left: 0;
 
-  z-index: -1;
-
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
   /* transition: transform 300ms ease-in-out; */
   transition: transform 300ms ease-in-out;
 
@@ -46,6 +47,9 @@ nav {
   justify-items: center;
   align-items: center;
   text-align: center;
+}
+.level-2-containers {
+  position: relative;
 }
 
 .level-1:hover .level-2-container {
@@ -56,14 +60,15 @@ nav {
   /* z-index: 1; */
   position: absolute;
 
-  transform-origin: -100%;
+  /* transform-origin: -10%; */
   transform: translate(0%, 100%);
   /* transform: translateY(150px); */
   /* heeeeeeeeeeeeeere change this in js */
 }
 
 header {
-  z-index: 2;
+  /* position: relative;
+  z-index: 50; */
 }
 
 /* .level-1:hover {
@@ -73,20 +78,22 @@ header {
 /* second level of dropdown list item*/
 /* li > ul > li { */
 .level-2 {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 
   height: 40px;
   width: var(--menu-item-width);
-  border: 1px solid green;
+  /* border: 1px solid green; */
 
-  background-color: blue;
+  background-color: lightblue;
 
   /* margin: auto 0; */
   list-style-type: none;
   cursor: pointer;
   font-size: large;
+  z-index: 1;
 }
 
 .awesome-dropdown-not-hidden {
