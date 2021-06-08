@@ -53,15 +53,15 @@ h1 {
 /* z-index: -3; */
 
 /* second level of dropdowns container*/
-li > ul {
+/* li > ul {
   position: absolute;
 
-  /* starting point of being hidden */
+  starting point of being hidden
   bottom: 0;
   left: 0;
   z-index: -3;
   transition: transform 300ms ease-in-out;
-}
+} */
 
 /* nav > ul > li:hover .li > ul > li {
   transform: translate(200px, 150px) rotate(30deg);
@@ -147,3 +147,16 @@ li:last-of-type:hover {
   color: var(--tab-color-selected);
   background-color: var(--tab-bkcolor-selected);
 } */
+
+/* Wider than 300px */
+/* @media only screen and (min-width: 300px) {
+  h1 {
+    color: orange;
+  }
+} */
+
+/* mobile first here */
+
+nav {
+  display: none;
+}

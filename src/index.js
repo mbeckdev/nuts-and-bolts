@@ -2,6 +2,7 @@
 // import css from './styles.css';
 import './styles.css';
 import './lib/awesome-drop-down-styles.css';
+import './lib/transition-in-mobile-menu.css';
 
 //GET PICTURES INTO THIS PROJECT WHEN YOU GET SOME PICTURES:
 // import MyPicture from './image.png';
