@@ -1,58 +1,61 @@
-li {
-  list-style-type: none;
-  cursor: pointer;
-}
+/* Width less than 300px */
+@media only screen and (max-width: 300px) {
+  li {
+    list-style-type: none;
+    cursor: pointer;
+  }
 
-.nav2 {
-  /* visibility: hidden; */
+  .nav2 {
+    visibility: hidden;
 
-  position: absolute;
-  z-index: 1;
-  background: blue;
-  width: 100%;
+    position: absolute;
+    z-index: 1;
+    background: blue;
+    width: 100%;
 
-  top: 0;
-  left: 0;
-}
+    top: 0;
+    left: 0;
+  }
 
-.hamburger-line {
-  width: 20px;
-  height: 3px;
-  background: green;
-  margin: 2px;
-}
+  .hamburger-line {
+    width: 20px;
+    height: 3px;
+    background: green;
+    margin: 2px;
+  }
 
-#hamburger {
-  border: 1px solid red;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+  #hamburger {
+    border: 1px solid red;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
-.mobile-menu-hidden {
-  visibility: hidden;
-}
-.art-square1 {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  top: -90px;
-  right: -75px;
+  .mobile-menu-hidden {
+    visibility: hidden;
+  }
+  .art-square1 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: -90px;
+    right: -75px;
 
-  transform: rotate(20deg);
+    transform: rotate(20deg);
 
-  background: darkred;
-  border-radius: 100px;
-}
-.art-square2 {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  top: -100px;
-  right: -50px;
+    background: darkred;
+    border-radius: 100px;
+  }
+  .art-square2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: -100px;
+    right: -50px;
 
-  transform: rotate(15deg);
+    transform: rotate(15deg);
 
-  background: red;
-  border-radius: 100px;
+    background: red;
+    border-radius: 100px;
+  }
 }
