@@ -1,80 +1,118 @@
 import './awesome-drop-down-styles.css';
 
 let dropdowns = (function () {
-  let dropDownList = [];
-  // // addMainLevelDropdown
-  // addSubLevelDropdown(mainLevel){}
-  // // makeADrop
-  // // writes to the DOM inside a nav element you specify
-  // function writeToScreen(navElementToAttachTo) {
-  function writeToScreen() {
-    return console.log('asdf');
+  'use strict';
+
+  const allTopItems = document.querySelectorAll('.top-item');
+  allTopItems.forEach((oneTopItem) => {
+    oneTopItem.addEventListener('mouseenter', topItemMouseEnter);
+    oneTopItem.addEventListener('mouseout', topItemMouseOut);
+  });
+
+  const allDropDownListContainers = document.querySelectorAll(
+    '.dropdown-list-container'
+  );
+  allDropDownListContainers.forEach((oneDropDownListContainer) => {
+    oneDropDownListContainer.addEventListener(
+      'mouseover',
+      keepListContainerVisible
+    );
+    oneDropDownListContainer.addEventListener(
+      'mouseout',
+      makeListContainerNotVisible
+    );
+  });
+
+  function keepListContainerVisible(e) {
+    // This is run when the person is hovering over the drop down list below
+    // Need to keep it visible because we're trying to make it not
+    //   visible when out of the topItem
+    let thisMouseETarget = e.target;
+    let dropdownListContainer = thisMouseETarget.closest(
+      '.dropdown-list-container'
+    );
+
+    if (
+      !dropdownListContainer.classList.contains(
+        'dropdown-list-container-expanded'
+      )
+    ) {
+      dropdownListContainer.classList.add('dropdown-list-container-expanded');
+    }
   }
 
-  function initialSetup() {
-    _labelSections();
-    _setUpEventListeners();
-  }
-  initialSetup();
+  function makeListContainerNotVisible(e) {
+    let thisMouseETarget = e.target;
+    let dropdownListContainer = thisMouseETarget.closest(
+      '.dropdown-list-container'
+    );
 
-  function _labelSections() {}
-
-  function _setUpEventListeners() {
-    // for containers that start out hidden, add a not-hiddden class
-    // when on hovering on parent element
-    let allUls = document.querySelectorAll('ul');
-    allUls.forEach((ul) => {
-      ul.classList.add('awesome-dropdown-not-hidden');
-    });
+    if (
+      dropdownListContainer.classList.contains(
+        'dropdown-list-container-expanded'
+      )
+    ) {
+      dropdownListContainer.classList.remove(
+        'dropdown-list-container-expanded'
+      );
+    }
   }
 
-  // let allMainLevelElements = [];
-  // addEventListeners() {
-  // }
-  // const mainTab = document.getElementById('main-tab');
-  // const menuTab = document.getElementById('menu-tab');
-  // const aboutTab = document.getElementById('about-tab');
-  // mainTab.addEventListener('click', function () {
-  //   clearAndSwitchTab(mainTab);
-  // });
-  // menuTab.addEventListener('click', function () {
-  //   clearAndSwitchTab(menuTab);
-  // });
-  // aboutTab.addEventListener('click', function () {
-  //   clearAndSwitchTab(aboutTab);
-  // });
-  // const copyContainer = document.getElementById('copy-container');
-  // function clearAndSwitchTab(tab) {
-  //   while (copyContainer.firstChild) {
-  //     copyContainer.removeChild(copyContainer.firstChild);
-  //   }
-  //   clearTabColors();
-  //   let theId = tab.id;
-  //   switch (theId) {
-  //     case 'main-tab':
-  //       mainTab.classList.add('tab-selected');
-  //       // loadHomeTab();
-  //       break;
-  //     case 'menu-tab':
-  //       menuTab.classList.add('tab-selected');
-  //       // loadMenuTab();
-  //       break;
-  //     case 'about-tab':
-  //       aboutTab.classList.add('tab-selected');
-  //       // loadAboutTab();
-  //       break;
-  //   }
-  // }
-  function clearTabColors() {
-    mainTab.classList.remove('tab-selected');
-    menuTab.classList.remove('tab-selected');
-    aboutTab.classList.remove('tab-selected');
+  function topItemMouseEnter(e) {
+    document.documentElement.style.setProperty('--dropdown-height1', '800px');
+
+    let dropdownListContainerSibling = e.target.nextElementSibling;
+    dropdownListContainerSibling.classList.add(
+      'dropdown-list-container-expanded'
+    );
   }
-  return {
-    // writeToScreen: writeToScreen,
-    clearTabColors,
-    writeToScreen,
-  };
+
+  function topItemMouseOut(e) {
+    document.documentElement.style.setProperty('--dropdown-height1', '800px');
+
+    let dropdownListContainerSibling = e.target.nextElementSibling;
+    dropdownListContainerSibling.classList.remove(
+      'dropdown-list-container-expanded'
+    );
+  }
 })();
-export { dropdowns };
 // export default dropdowns;
+export { dropdowns };
+
+// let dropDownList = [];
+// // // addMainLevelDropdown
+// // addSubLevelDropdown(mainLevel){}
+// // // makeADrop
+// // // writes to the DOM inside a nav element you specify
+// // function writeToScreen(navElementToAttachTo) {
+// function writeToScreen() {
+//   return console.log('asdf');
+// }
+
+// function initialSetup() {
+//   _labelSections();
+//   _setUpEventListeners();
+// }
+// initialSetup();
+
+// function _labelSections() {}
+
+// function _setUpEventListeners() {
+//   // for containers that start out hidden, add a not-hiddden class
+//   // when on hovering on parent element
+//   let allUls = document.querySelectorAll('ul');
+//   allUls.forEach((ul) => {
+//     ul.classList.add('awesome-dropdown-not-hidden');
+//   });
+// }
+
+// function clearTabColors() {
+//   mainTab.classList.remove('tab-selected');
+//   menuTab.classList.remove('tab-selected');
+//   aboutTab.classList.remove('tab-selected');
+// }
+// return {
+//   // writeToScreen: writeToScreen,
+//   clearTabColors,
+//   writeToScreen,
+// };

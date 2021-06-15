@@ -19,7 +19,7 @@ import './lib/transition-in-mobile-menu.css';
 
 import { loadPage } from './lib/load-page.js';
 import { dropdowns } from './lib/awesome-drop-downs.js';
-dropdowns.writeToScreen();
+// dropdowns.writeToScreen();
 
 // import { loadHomeTab } from './page-home.js';
 // import { loadMenuTab } from './page-menu.js';
