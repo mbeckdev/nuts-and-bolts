@@ -3,6 +3,10 @@ import './awesome-drop-down-styles.css';
 let dropdowns = (function () {
   'use strict';
 
+  // *****************************
+  // Drop down addEventListeners
+  // *****************************
+
   const allTopItems = document.querySelectorAll('.top-item');
   allTopItems.forEach((oneTopItem) => {
     oneTopItem.addEventListener('mouseenter', topItemMouseEnter);
@@ -22,6 +26,10 @@ let dropdowns = (function () {
       makeListContainerNotVisible
     );
   });
+
+  // *****************************
+  // Drop down functions
+  // *****************************
 
   function keepListContainerVisible(e) {
     // This is run when the person is hovering over the drop down list below
