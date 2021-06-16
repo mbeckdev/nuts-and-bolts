@@ -10,7 +10,7 @@ let dropdowns = (function () {
   const allTopItems = document.querySelectorAll('.top-item');
   allTopItems.forEach((oneTopItem) => {
     oneTopItem.addEventListener('mouseenter', topItemMouseEnter);
-    oneTopItem.addEventListener('mouseout', topItemMouseOut);
+    oneTopItem.addEventListener('mouseleave', topItemMouseOut);
   });
 
   const allDropDownListContainers = document.querySelectorAll(
@@ -67,7 +67,7 @@ let dropdowns = (function () {
   }
 
   function topItemMouseEnter(e) {
-    document.documentElement.style.setProperty('--dropdown-height1', '800px');
+    setHeightOfDropdown(e);
 
     let dropdownListContainerSibling = e.target.nextElementSibling;
     dropdownListContainerSibling.classList.add(
@@ -76,51 +76,46 @@ let dropdowns = (function () {
   }
 
   function topItemMouseOut(e) {
-    document.documentElement.style.setProperty('--dropdown-height1', '800px');
+    console.log('mouseout');
+    if (e.target.nodeName == 'a') {
+      console.log('a !!!');
+    }
 
     let dropdownListContainerSibling = e.target.nextElementSibling;
     dropdownListContainerSibling.classList.remove(
       'dropdown-list-container-expanded'
     );
   }
+
+  // *****************************
+  // Set height of dropdown container
+  // *****************************
+  function setHeightOfDropdown(e) {
+    let numOfLis = _findNumOfLis(e);
+    let liHeight = 0;
+    if (numOfLis > 0) {
+      liHeight = _findLiHeight(e);
+    }
+
+    let dropdownHeightTotal = liHeight * numOfLis;
+    let dropdownHeightTotalInPx = dropdownHeightTotal + 'px';
+    document.documentElement.style.setProperty(
+      '--dropdown-height',
+      dropdownHeightTotalInPx
+    );
+  }
+
+  function _findLiHeight(e) {
+    let thisTopItem = e.target;
+    let firstLi = thisTopItem.nextElementSibling.querySelector('li');
+    return firstLi.offsetHeight;
+  }
+
+  function _findNumOfLis(e) {
+    let thisTopItem = e.target;
+    let allLisBelow = thisTopItem.nextElementSibling.querySelectorAll('li');
+    return allLisBelow.length;
+  }
 })();
-// export default dropdowns;
+
 export { dropdowns };
-
-// let dropDownList = [];
-// // // addMainLevelDropdown
-// // addSubLevelDropdown(mainLevel){}
-// // // makeADrop
-// // // writes to the DOM inside a nav element you specify
-// // function writeToScreen(navElementToAttachTo) {
-// function writeToScreen() {
-//   return console.log('asdf');
-// }
-
-// function initialSetup() {
-//   _labelSections();
-//   _setUpEventListeners();
-// }
-// initialSetup();
-
-// function _labelSections() {}
-
-// function _setUpEventListeners() {
-//   // for containers that start out hidden, add a not-hiddden class
-//   // when on hovering on parent element
-//   let allUls = document.querySelectorAll('ul');
-//   allUls.forEach((ul) => {
-//     ul.classList.add('awesome-dropdown-not-hidden');
-//   });
-// }
-
-// function clearTabColors() {
-//   mainTab.classList.remove('tab-selected');
-//   menuTab.classList.remove('tab-selected');
-//   aboutTab.classList.remove('tab-selected');
-// }
-// return {
-//   // writeToScreen: writeToScreen,
-//   clearTabColors,
-//   writeToScreen,
-// };

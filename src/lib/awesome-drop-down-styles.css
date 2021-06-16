@@ -1,20 +1,14 @@
 :root {
-  /* --tab-color-selected: #e5eef5;
-  --tab-bkcolor-selected: #04080b;
-  --top-color: #2f4858; */
-  /* --tab-hover-color: #33658a; hsl(5, 86%, 38%) */
   --menu-bk-color: darkblue;
   --menu-dropdown-bk-color: darkgreen;
-  /* --menu-item-width: 100px; */
-
   --menu-item-width: 150px;
-  --dropdown-height1: 400px;
-  --menu-text-color: white;
-  --menu-text-shadow-color: black;
-  --menu-top-item-background-color: hsl(20deg, 0%, 70%);
-  --menu-top-item-background-hover-color: hsl(20deg, 0%, 60%);
-  --menu-dropdown-background-color: hsl(20deg, 0%, 50%);
-  --menu-dropdown-background-hover-color: hsl(20deg, 0%, 40%);
+  /* --dropdown-height: this is set in awesome-drop-downs.js; */
+  --menu-top-item-background-color: hsl(210deg, 10%, 70%);
+  --menu-top-item-background-hover-color: hsl(210deg, 10%, 60%);
+  --menu-dropdown-background-color: hsl(210deg, 10%, 50%);
+  --menu-dropdown-background-hover-color: hsl(210deg, 10%, 40%);
+  /* --menu-text-color: white;
+  --menu-text-shadow-color: black; */
 }
 
 /* Wider than 300px */
@@ -30,6 +24,10 @@
     box-sizing: border-box;
   }
 
+  a {
+    color: unset;
+    text-decoration: none;
+  }
   /* container for all dropdowns */
   .dropdown-menu {
     display: flex;
@@ -38,10 +36,10 @@
   /* Individual dropdown that appears - section*/
   .top-item {
     width: var(--menu-item-width);
+    padding: 5px 0;
 
     background-color: var(--menu-top-item-background-color);
     text-align: center;
-    padding: 5px 0;
   }
   .top-item:hover {
     background-color: var(--menu-top-item-background-hover-color);
@@ -59,14 +57,12 @@
 
   .dropdown-list {
     /* background: lightblue; */
-    border: 1px solid lightblue;
+    /* border: 1px solid lightblue; */
   }
 
   .dropdown-list li {
     list-style-type: none;
     text-align: center;
-    /* padding: 5px 0; */
-    border: 1px solid red;
     overflow: hidden;
     padding: 4px 0;
   }
@@ -75,108 +71,20 @@
     background-color: var(--menu-dropdown-background-hover-color);
   }
 
+  /* ***************************** */
   /* transition effects only */
+  /* ***************************** */
 
-  /*     this will expand from 0 to some height later in js */
+  /* this will expand from 0 to some height later in js */
   .dropdown-list-container {
-    /* height: var(--dropdown-height1); */
     height: 0px;
     background-color: var(--menu-dropdown-background-color);
-    transition: height 300ms ease-in-out;
-    border: 1px solid blue;
+    transition: height 200ms ease-in-out;
+    /* border: 1px solid blue; */
   }
 
   .dropdown-list-container-expanded {
-    height: 500px;
-  }
-
-  .top-item:hover {
-    transform: height(200px);
+    /* this is calculated per dropdown-container in the JS file*/
+    height: var(--dropdown-height);
   }
 }
-
-/* nav div {
-    display: flex;
-    position: relative;
-  } */
-
-/* first level of dropdown */
-/* nav > ul > li { */
-/* .level-1 {
-    position: relative;
-    
-    display: inline-block;
-
-    width: var(--menu-item-width);
-    padding: 4px 0;
-
-    text-align: center;
-
-    background-color: darkgray;
-   
-  } */
-
-/* .level-2-container {
-    position: relative;
-    z-index: 1;
-    width: var(--menu-item-width);
-    bottom: 0;
-
-    left: 0;
-
-
-    transition: transform 300ms ease-in-out;
-
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    text-align: center;
-  }
-  .level-2-containers {
-    position: relative;
-  } */
-
-/* .level-1:hover .level-2-container {
-
-    position: absolute;
-
- 
-    transform: translate(0%, 100%);
-
-  } */
-
-/* header { */
-/* position: relative;
-    z-index: 50; */
-/* } */
-
-/* .level-1:hover {
-    background-color: white;
-  } */
-
-/* second level of dropdown list item*/
-/* li > ul > li { */
-
-/* .level-2 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 40px;
-    width: var(--menu-item-width);
-
-    background-color: lightblue;
-
-    list-style-type: none;
-    cursor: pointer;
-    font-size: large;
-    z-index: 1;
-  } */
-
-/* .awesome-dropdown-not-hidden {
-    color: purple;
-    z-index: 1;
-    top: 0;
-  } */
