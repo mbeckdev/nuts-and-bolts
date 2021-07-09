@@ -84,7 +84,8 @@
   }
 
   .dropdown-list-container-expanded {
-    /* this is calculated per dropdown-container in the JS file*/
+    /* this is calculated when entering or exiting the top item,
+       calculated per dropdown-container in the JS file*/
     height: var(--dropdown-height);
   }
 }
